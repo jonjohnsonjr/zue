@@ -24,8 +24,12 @@ func main() {
 	fmt.Printf("Phase 1: Collecting package paths from %v\n", args)
 	t0 := time.Now()
 
+	cfg := &load.Config{
+		Cache: load.NewCache(),
+	}
+
 	var pkgPaths []string
-	for _, inst := range load.Instances(args, nil) {
+	for _, inst := range load.Instances(args, cfg) {
 		if inst.Err != nil {
 			fmt.Fprintf(os.Stderr, "load error: %v\n", inst.Err)
 			os.Exit(1)
@@ -49,7 +53,7 @@ func main() {
 
 	for _, pkgPath := range pkgPaths {
 		eg.Go(func() error {
-			insts := load.Instances([]string{pkgPath}, nil)
+			insts := load.Instances([]string{pkgPath}, cfg)
 			if len(insts) != 1 {
 				return nil
 			}

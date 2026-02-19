@@ -2,6 +2,8 @@ module github.com/jonjohnsonjr/zue
 
 go 1.25.0
 
+replace cuelang.org/go => github.com/jonjohnsonjr/cue v0.0.0-20260213213655-a36e391a09a1
+
 require (
 	cuelang.org/go v0.14.2
 	golang.org/x/sync v0.19.0
@@ -18,9 +20,9 @@ require (
 	github.com/pelletier/go-toml/v2 v2.2.4 // indirect
 	github.com/protocolbuffers/txtpbfmt v0.0.0-20251124094003-fcb97cc64c7b // indirect
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
+	go.yaml.in/yaml/v3 v3.0.4 // indirect
 	golang.org/x/net v0.49.0 // indirect
 	golang.org/x/oauth2 v0.34.0 // indirect
 	golang.org/x/text v0.33.0 // indirect
 	google.golang.org/protobuf v1.33.0 // indirect
-	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
